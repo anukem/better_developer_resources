@@ -1,4 +1,4 @@
-## Use Case 1:  
-I needed to delete all the changes to one file and one file only. 
+## Use Case 1:
+I needed to delete all the changes to one file and one file only.
 
-###Command: git checkout 
+###Command: git checkout *filename*
