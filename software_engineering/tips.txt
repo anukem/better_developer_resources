@@ -1,5 +1,0 @@
-Notes for Deploying to Test Machine. 
-
-- run "set-executionPolicy Unrestricted"
-- Run Uninstall.exe Script from \\private\scratch\majaeger\MixedRealityPortal\Uninstall.exe
-- Make sure to boot the Oasis OS from the start menu 
