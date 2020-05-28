@@ -11,6 +11,6 @@ Currently there is:
 * git for well.... git stuff
 
 
-Feel free to submit pull requests to any or all or none of these, but I hope you find it beneficial!
+Feel free to submit pull requests to any or all or none of these, and I hope you find it beneficial!
 
 -- E
