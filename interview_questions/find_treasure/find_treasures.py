@@ -1,4 +1,3 @@
-
 test = [4,"1B 2C,2D 4D","2B 2D 3D 4D 4A"] # should return [1,1]
 
 class Treasure:
