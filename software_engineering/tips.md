@@ -8,7 +8,7 @@ Go for the smallest unit of individual work to submit. It will increase your vel
 
 ### Tips for reviewing code
 * Save the nits for the end of the code review. If you're at the point where you're searching for
-errors, it's probably because the code is written well enough.
+non errors, it's probably because the code is written well enough.
 * Review code like a story. Start by understanding the theme or
 the gist of what someone is trying to do, and then transistion into inspecting
 how they do it, paying close attention to any libraries or third party code they
