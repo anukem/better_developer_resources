@@ -17,3 +17,5 @@ understanding, ask for clarification in the area where the knowledge gap exists.
 You learn a lot when you ask those questions and it gives the author an opportunity
 to demonstrate their understanding as well!
 
+## Engineering Principles
+* The system you create should be as restrictive as possible because its much easier to open a system up rather than to try and close a system down.
