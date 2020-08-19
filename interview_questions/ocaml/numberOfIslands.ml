@@ -6,10 +6,10 @@
 (*  *)
 (* Example 1: *) (*  *)
 (* Input: grid = [ *)
-(*   ["1","1","1","1","0"], *)
-(*   ["1","1","0","1","0"], *)
-(*   ["1","1","0","0","0"], *)
-(*   ["0","0","0","0","0"] *)
+  (* ["1","1","1","1","0"], *)
+  (* ["1","1","0","1","0"], *)
+  (* ["1","1","0","0","0"], *)
+  (* ["0","0","0","0","0"] *)
 (* ] *)
 (* Output: 1 *)
 (* Example 2: *)
@@ -49,35 +49,7 @@ let make_table grid =
 
   rows 0 grid; table
 
-let gen n = List.init n (fun x -> x)
-
-let print_table table =
-  let max_x = Hashtbl.fold (fun (x, _) _ init -> if x > init then x else init ) table 0 in
-  let max_y = Hashtbl.fold (fun (_, y) _ init -> if y > init then y else init ) table 0 in
-
-  List.map (fun x -> List.map (fun y ->
-      print_string (List.fold_left (^) "" ["(";string_of_int x;",";string_of_int y;")"; " "; string_of_int (Hashtbl.find table (x, y) );"\n"])) (gen (max_y + 1)) ) (gen (max_x + 1) )
-|> (fun r -> ())
-
-let print_pair (x, y) =
-  print_string (string_of_int x);
-  print_string ",";
-  print_string (string_of_int y);
-  print_string "\n"
-
-let rec print_list_of_pairs lst =
-  match lst with
-  | [] -> print_string "\n end of list \n"
-  | h::tl -> print_pair h; print_list_of_pairs tl
-
-let print_visited s =
-  match MySet.elements s with
-  | [] -> print_string "\n end of set\n"
-  | lst -> print_list_of_pairs lst
-
 let rec mark_neighbors t visited (x, y) =
-  (* print_string "PRINTING THE VISITED SET \n"; *)
-  (* print_visited visited; *)
   let visited = MySet.add (x, y) visited in
   let neighbors = List.filter (
   fun point ->
