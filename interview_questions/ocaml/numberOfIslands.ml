@@ -76,7 +76,9 @@ let print_visited s =
   | lst -> print_list_of_pairs lst
 
 let rec mark_neighbors t visited (x, y) =
-  print_visited visited;
+  (* print_string "PRINTING THE VISITED SET \n"; *)
+  (* print_visited visited; *)
+  let visited = MySet.add (x, y) visited in
   let neighbors = List.filter (
   fun point ->
       match Hashtbl.find_opt t point with
@@ -91,6 +93,14 @@ let rec mark_neighbors t visited (x, y) =
       (MySet.union (mark_neighbors t (MySet.add current_neighbor acc) current_neighbor) acc)) visited neighbors
   in ret
 
+let ones_ tbl = Hashtbl.filter_map_inplace (fun (x, y) value -> match value with 1 -> Some value | _ -> None) tbl
+
 let num_islands lst =
   let table = make_table lst in
-  mark_neighbors table (MySet.add (0,0) MySet.empty) (0, 0)
+    let add_island (x, y) value (visited, islands) =
+      let new_visited = mark_neighbors table visited (x, y) in
+          match MySet.equal visited new_visited with
+          | true -> (visited, islands)
+          | false -> (MySet.union visited new_visited, islands + 1) in
+  ones_ table;
+  Hashtbl.fold add_island table (MySet.empty, 0)
