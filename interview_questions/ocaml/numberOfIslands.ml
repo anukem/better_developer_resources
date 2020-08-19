@@ -65,8 +65,18 @@ let print_pair (x, y) =
   print_string (string_of_int y);
   print_string "\n"
 
+let rec print_list_of_pairs lst =
+  match lst with
+  | [] -> print_string "\n end of list \n"
+  | h::tl -> print_pair h; print_list_of_pairs tl
+
+let print_visited s =
+  match MySet.elements s with
+  | [] -> print_string "\n end of set\n"
+  | lst -> print_list_of_pairs lst
+
 let rec mark_neighbors t visited (x, y) =
-  print_pair (x, y);
+  print_visited visited;
   let neighbors = List.filter (
   fun point ->
       match Hashtbl.find_opt t point with
@@ -77,11 +87,10 @@ let rec mark_neighbors t visited (x, y) =
           | Some x -> false
         else false
     ) [(x + 1, y); (x - 1, y); (x, y - 1); (x, y + 1)] in
-  List.fold_left (fun acc current_neighbor -> (MySet.union (mark_neighbors t (MySet.add current_neighbor visited) current_neighbor) acc)) MySet.empty neighbors
-
+  let ret = List.fold_left (fun acc current_neighbor ->
+      (MySet.union (mark_neighbors t (MySet.add current_neighbor acc) current_neighbor) acc)) visited neighbors
+  in ret
 
 let num_islands lst =
   let table = make_table lst in
-  mark_neighbors table MySet.empty (0, 0)
-
-
+  mark_neighbors table (MySet.add (0,0) MySet.empty) (0, 0)
