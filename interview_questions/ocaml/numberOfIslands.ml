@@ -103,4 +103,4 @@ let num_islands lst =
           | true -> (visited, islands)
           | false -> (MySet.union visited new_visited, islands + 1) in
   ones_ table;
-  Hashtbl.fold add_island table (MySet.empty, 0)
+  Hashtbl.fold add_island table (MySet.empty, 0) |> snd
