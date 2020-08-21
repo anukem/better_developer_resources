@@ -108,7 +108,8 @@
 # Input: heights = [1,2,3,4], V = 2, K = 2
 # Output: [2,3,3,4]
 # Explanation:
-#   The last droplet settles at index 1, since moving further left would not cause it to eventually fall to a lower height.
+#   The last droplet settles at index 1,
+# since moving further left would not cause it to eventually fall to a lower height.
 # Example 3:
 #
 # Input: heights = [3,1,3], V = 5, K = 1
@@ -169,6 +170,3 @@ class Solution:
 
 
 s = Solution()
-
-print(s.pourWater([3, 1, 3], 5, 1))
-print(s.pourWater([1, 2, 3, 4, 5, 6, 7, 8], 5, 4))
