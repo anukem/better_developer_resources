@@ -121,7 +121,6 @@
 
 
 def goLeft(heights, k):
-    print(heights)
     i = k - 1
     while heights[i] <= heights[k]:
         if heights[i] < heights[i + 1]:

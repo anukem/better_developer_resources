@@ -13,12 +13,8 @@ let go_left heights k =
   go (k - 1) k
 
 
-let print_array arr =
-  print_string "\n";
-  for i = 0 to Array.length  arr - 1 do
-    print_int arr.(i);
-  done
-
+(* takes a list of numbers and adds a droplet if possible *)
+(*     to the right of the k *)
 let go_right heights k =
   let rec go i k =
     match i != Array.length heights && heights.(i) <= heights.(k) with
