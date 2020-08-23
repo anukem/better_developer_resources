@@ -19,7 +19,7 @@
 def validate_path(word, count, point, board, visited):
     i, j = point
     print(i, j)
-    if count == len(word) - 1:
+    if count == len(word):
         return True
     if (
         i < 0
@@ -52,6 +52,3 @@ def word_search(word, board):
                 if found:
                     return True
     return False
-
-
-print(word_search("dog", [["d", "b", "c"], ["o", "g", "g"]]))
