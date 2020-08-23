@@ -60,8 +60,7 @@ def cheapestFlights(flights, src, dst, k):
             flight_map[s].append((d, cost))
         else:
             flight_map[s] = [(d, cost)]
+    if not flight_map.get(src):
+        return -1
     answer = find_cheapest_flight(flight_map, src, dst, k + 1, 0)
     return -1 if answer == float("inf") else answer
-
-
-cheapestFlights([[0, 1, 100], [1, 2, 100], [0, 2, 500]], 0, 2, 0)
