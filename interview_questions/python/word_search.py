@@ -18,7 +18,6 @@
 
 def validate_path(word, count, point, board, visited):
     i, j = point
-    print(i, j)
     if count == len(word):
         return True
     if (
