@@ -46,12 +46,17 @@
 
 module MyMap = Map.Make(Int)
 
+let min_list lst = List.fold_left (fun acc value -> min acc value) max_int lst
+
 let cheapest_flights flights src dst k =
   let succ = List.fold_left (fun map (src, dst, cost) -> MyMap.add src [] map ) MyMap.empty flights in
   let succ =  List.fold_left (fun map (src, dst, cost) -> MyMap.add src ((dst, cost)::(MyMap.find src map)) map ) succ flights in
   let rec find_shortest_path map src dst cost k =
-    match MyMap.find src map with
-    | [] -> cost
-    | (new_destination, c)::tl -> find_shortest_path map new_destination dst (cost + c) (k - 1) in
-  find_shortest_path succ src dst 0 k + 1
+    if src = dst && k >= 0 then cost
+    else if k = 0 then max_int
+    else let total_cost = List.fold_left (fun acc (new_destination, c) -> (find_shortest_path map new_destination dst (cost + c) (k - 1) )::acc) [] (match MyMap.find_opt src map with None -> [] | Some x -> x) in
+  match total_cost with
+  | [] -> cost
+  | lst -> min_list lst in
+find_shortest_path succ src dst 0 (k + 1)
 
