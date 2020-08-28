@@ -1,8 +1,6 @@
 open Fizzbuzz
 open OUnit2
 
-
-
 let tests = "test suite for number of islands" >::: [
     "no fizz or buzz"      >:: (fun _ -> assert_equal ["1";"2"] ( fizz_buzz 2 ) );
     "fizz no buzz"      >:: (fun _ -> assert_equal ["1";"2"; "fizz"] ( fizz_buzz 3 ) );

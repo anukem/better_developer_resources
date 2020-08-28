@@ -19,7 +19,7 @@ let knows' (x, y) =
   | 1, 0 -> false
   | 1, 2 -> true
   | 2, 1 -> false
-  | 2, 0 -> false
+  | 2, 0 -> true
   | _ -> failwith "this persom doesn't exist"
 
 let tests = "test suite for finding a celebrity" >::: [
@@ -28,3 +28,4 @@ let tests = "test suite for finding a celebrity" >::: [
 ]
 
 
+let _ = run_test_tt_main tests
