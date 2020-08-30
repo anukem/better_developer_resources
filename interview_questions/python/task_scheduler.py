@@ -58,7 +58,6 @@ def task_scheduler(tasks, n):
 
     while len(queue) != 0:
         queue = sorted(queue, reverse=True)
-        print(queue)
         completed_tasks = n + 1
         processing = []
         for i in range(n + 1):
