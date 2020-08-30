@@ -13,12 +13,8 @@ def test_no_stop():
     assert task_scheduler(["a", "b", "c"], 0) == 3
 
 
-def test_no_stops():
-    assert task_scheduler(["a", "a", "a"], 1) == 5
-
-
-def test_one_stop():
+def test_lots_of_stops():
     assert (
-        task_scheduler(["A", "A", "A", "A", "A", "A", "B", "C", "D", "E", "F", "G"], 2)
-        == 16
+        task_scheduler(["A", "A", "A", "B", "B", "B", "C", "C", "C", "D", "D", "E"], 2)
+        == 12
     )

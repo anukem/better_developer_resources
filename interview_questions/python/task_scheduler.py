@@ -54,29 +54,22 @@ def task_scheduler(tasks, n):
         task_map[task] = 1 if task not in task_map else task_map[task] + 1
 
     answer = 0
-    queue = [(task, task_map[task]) for task in task_map]
-    queue = sorted(queue)
+    queue = [(task_map[task]) for task in task_map]
 
     while len(queue) != 0:
+        queue = sorted(queue, reverse=True)
+        print(queue)
         completed_tasks = n + 1
         processing = []
-        while completed_tasks != 0 and len(queue) != 0:
-            completed_tasks -= 1
-            task, unfinished = queue.pop(0)
-            unfinished -= 1
-            answer += 1
-            print(queue, answer)
-            if unfinished != 0:
-                processing.append((task, unfinished))
-            elif unfinished == 0 and len(queue) == 0 and len(processing) == 0:
-                return answer
+        for i in range(n + 1):
+            if len(queue) != 0:
+                processing.append(queue.pop(0))
 
-        if len(queue) == 0 and completed_tasks != 0:
-            while completed_tasks != 0:
-                completed_tasks -= 1
-                answer += 1
-        while len(processing) > 0:
-            queue.insert(0, processing.pop())
+        for i in reversed(range(len(processing))):
+            if processing[i] - 1 > 0:
+                queue.insert(0, processing[i] - 1)
+
+        answer += len(processing) if len(queue) == 0 else completed_tasks
 
     return answer
 
