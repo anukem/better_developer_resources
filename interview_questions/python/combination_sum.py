@@ -37,9 +37,33 @@
 # 1,010,629
 
 
+def dfs(candidates, target, s, curr, ans):
+    print(target, s, curr, ans)
+    if target == 0:
+        ans.append(curr.copy())  # hard copy
+        return
+
+    for i in range(s, len(candidates)):
+        if candidates[i] > target:
+            print(target, s, curr, ans)
+            break
+        if i > s and candidates[i] == candidates[i - 1]:  # remove duplicates
+            print(target, s, curr, ans)
+            continue
+        curr.append(candidates[i])
+        dfs(candidates, target - candidates[i], i + 1, curr, ans)
+        curr.pop()
+
+
+def combinationSum2(candidates, target):
+    candidates.sort()
+    ans = []
+    dfs(candidates, target, 0, [], ans)
+    return ans
+
+
 def combinationSum(candidates, target):
     res = []
-    print(candidates, target)
 
     for i in range(len(candidates)):
         val = candidates[i]
@@ -48,10 +72,7 @@ def combinationSum(candidates, target):
         elif val < target:
             res += [
                 [val] + j
-                for j in combinationSum(candidates[i + 1 :], target - candidates[i])
+                for j in combinationSum(candidates[i + 0 :], target - candidates[i])
             ]
 
     return res
-
-
-print(combinationSum([1, 2, 4], 6))
