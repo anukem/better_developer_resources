@@ -50,7 +50,4 @@ def generate_string(s):
 
 
 def backspace_string_compare(a, b):
-    a = generate_string(a)
-    b = generate_string(b)
-
-    return a == b
+    return generate_string(a) == generate_string(b)
