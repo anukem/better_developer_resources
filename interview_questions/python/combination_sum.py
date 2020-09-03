@@ -72,7 +72,7 @@ def combinationSum(candidates, target):
         elif val < target:
             res += [
                 [val] + j
-                for j in combinationSum(candidates[i + 0 :], target - candidates[i])
+                for j in combinationSum(candidates[i + 1 :], target - candidates[i])
             ]
 
     return res
