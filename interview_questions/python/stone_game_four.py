@@ -61,7 +61,7 @@ def can_win(n):
             candidate = i - (square * square)
             square += 1
 
-        if winning[i] != True:
+        if winning[i] is not True:
             winning[i] = False
 
     return winning[n]
