@@ -48,7 +48,6 @@ def asteroid_collision(arr):
                 stack.append(asteroid)
             if stack[-1] == abs(asteroid):
                 stack.pop()
-                continue
 
     return stack
 
