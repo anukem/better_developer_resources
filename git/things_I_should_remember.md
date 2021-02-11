@@ -12,3 +12,8 @@ Command:`git reflog`
 I want to revert the changes I made to a file by checking out a version of that file from a different branch
 
 Command: `git checkout [branch] -- [file]`
+
+## Use Case 4:
+I want to see just the changes that a commit made.
+
+Command: `git diff COMMIT~ COMMIT`
