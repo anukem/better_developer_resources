@@ -1,3 +1,7 @@
+type 'a rle =
+    | One of 'a
+    | Many of int * 'a
+
 let encoding l =
   let rec aux count acc = function
   | [] -> []
@@ -6,3 +10,9 @@ let encoding l =
   in
   List.rev (aux 0 [] l)
 
+let decode l =
+  let rec aux acc = function
+    | [] -> acc
+    | (One h)::t -> aux (h::acc) t
+    | Many (c, v)::t -> if c > 0 then aux (v::acc) ((Many (c - 1, v))::t) else aux acc t
+  in List.rev (aux [] l)
