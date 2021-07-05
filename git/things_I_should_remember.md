@@ -17,3 +17,8 @@ Command: `git checkout [branch] -- [file]`
 I want to see just the changes that a commit made.
 
 Command: `git diff COMMIT~ COMMIT`
+
+## Use Case 5:
+I want to see the full history of a file including renames.
+
+Command: `git log --follow {name_of_file}`
