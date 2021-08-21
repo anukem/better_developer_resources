@@ -20,6 +20,8 @@ to demonstrate their understanding as well!
 What happens if certain code paths don't complete or fail early? Do you have anything that relies on the state of the program previously? 
 If so, don't forget to check the error paths as well.
 
+## Good things to know
+1. The best way to understand how code written by someone else (including your former self) wrote, is to delete as much as you can and see what breaks. If nothing breaks, it probably wasn't needed, and if it does, you know why its there.
 
 ## Engineering Principles
 * The system you create should be as restrictive as possible because its much easier to open a system up rather than to try and close a system down.
