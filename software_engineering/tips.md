@@ -25,3 +25,4 @@ If so, don't forget to check the error paths as well.
 
 ## Engineering Principles
 * The system you create should be as restrictive as possible because its much easier to open a system up rather than to try and close a system down.
+* When thinking about client and server interactions, where possible, its much better to assume that data will take a certain shape when an api is called rather than explicitly passing it as a parameter to the api. i.e Calling `/delete` and generating a `DELETED` status on the backend rather than having an `/update` with a param for what the status should be.
