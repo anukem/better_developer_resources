@@ -23,7 +23,9 @@ I want to see the full history of a file including renames.
 
 Command: `git log --follow {name_of_file}`
 
+
 ## Use Case 6:
-I want to only apply the changes from a specific set of files from a stash
+I want to only apply the changes from a specific set of files from a stash.
+
 
 Command: `git checkout stash@{0} -- <filename>`
